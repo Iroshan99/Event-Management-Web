@@ -6,6 +6,7 @@ import LandingPage from "./pages/LandingPage";
 import RegisteredEvents from "./pages/RegisteredEvents";
 import CreateEvent from "./pages/CreateEvent";
 import OrganizerDashboard from "./pages/OrganizerDashboard";
+import CreatedEventsHistory from "./pages/CreatedEventsHistory";
 import "tailwindcss";
 
 export default function App() {
@@ -20,7 +21,8 @@ export default function App() {
           <Route path="/participant-dashboard" element={<ParticipantDashboard/>}/>
           <Route path="/registered-events" element={<RegisteredEvents/>}/>
           <Route path="/create-event" element={<CreateEvent/>} />
-          <Route path="/organizer-dashboard" element={<OrganizerDashboard />} />
+          <Route path="/organizer-dashboard" element={<OrganizerDashboard/>} />
+          <Route path="/created-events-history" element={<CreatedEventsHistory/>} />
         </Routes>
     </Router>
   );
