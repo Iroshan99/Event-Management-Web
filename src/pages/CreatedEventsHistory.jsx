@@ -3,7 +3,10 @@ import axios from "axios";
 
 export default function CreatedEventsHistory() {
   const [events, setEvents] = useState([]);
-  const organizerId = localStorage.getItem("token"); // Get from local storage
+  const [userId, setUserId] =useState("");
+  setUserId(decodedToken.userId);
+  const organizerId = localStorage.getItem("userId"); // Get from local storage
+  
 
   useEffect(() => {
     const fetchCreatedEvents = async () => {
