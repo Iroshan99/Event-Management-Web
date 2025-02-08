@@ -3,14 +3,26 @@ import axios from "axios";
 
 export default function CreatedEventsHistory() {
   const [events, setEvents] = useState([]);
-  const [userId, setUserId] =useState("");
-  setUserId(decodedToken.userId);
-  const organizerId = localStorage.getItem("userId"); // Get from local storage
-  
+  const [organizerId, setOrganizerId] = useState("");
+
+  useEffect(() => {
+    // Retrieve user ID from localStorage or decode JWT token
+    const token = localStorage.getItem("token"); // Assuming token is stored in localStorage
+    if (token) {
+      try {
+        const decodedToken = JSON.parse(atob(token.split(".")[1]));
+        setOrganizerId(decodedToken.userId); // Set organizer ID from token
+      } catch (error) {
+        console.error("Error decoding token:", error);
+      }
+    }
+  }, []);
 
   useEffect(() => {
     const fetchCreatedEvents = async () => {
       try {
+        if (!organizerId) return; // Ensure organizerId is set before making request
+
         const res = await axios.get(`http://localhost:5000/created-events/${organizerId}`);
         setEvents(res.data);
       } catch (error) {
@@ -18,10 +30,8 @@ export default function CreatedEventsHistory() {
       }
     };
 
-    if (organizerId) {
-      fetchCreatedEvents();
-    }
-  }, [organizerId]);
+    fetchCreatedEvents();
+  }, [organizerId]); // Run when organizerId updates
 
   return (
     <div className="min-h-screen bg-gray-100 p-6">
