@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 export default function ParticipantDashboard() {
   const [events, setEvents] = useState([]);
-  const [userId, setUserId] = useState("");
+  const [userId, setUserId] = useState([]);
   const navigate = useNavigate();
 
   useEffect(() => {

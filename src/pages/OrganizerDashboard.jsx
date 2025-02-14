@@ -17,8 +17,6 @@ export default function OrganizerDashboard() {
 
     const fetchOrganizerData = async () => {
       try {
-        const eventsRes = await axios.get(`http://localhost:5000/organizer-events/${organizerId}`);
-        setEvents(eventsRes.data);
 
         const notificationsRes = await axios.get(`http://localhost:5000/notifications/${organizerId}`);
         setNotifications(notificationsRes.data);
@@ -61,21 +59,23 @@ export default function OrganizerDashboard() {
           </div>
         ))}
       </div>
+
       <div>
-      <button
-        onClick={() => navigate("/create-event")}
-         className="mt-4 bg-purple-500 text-white px-4 py-2 rounded"
-      >
-         Create Event
-      </button>
+        <button
+          onClick={() => navigate("/create-event")}
+          className="mt-4 bg-purple-500 text-white px-4 py-2 rounded"
+        >
+          Create Event
+        </button>
       </div>
+
       <div>
-      <button
-        onClick={() => navigate("/created-events-history")}
-         className="mt-4 bg-purple-500 text-white px-4 py-2 rounded"
-      >
-         Created Event History
-      </button>
+        <button
+          onClick={() => navigate("/created-events-history")}
+          className="mt-4 bg-purple-500 text-white px-4 py-2 rounded"
+        >
+          Created Event History
+        </button>
       </div>
     </div>
   );
