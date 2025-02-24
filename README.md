@@ -13,7 +13,7 @@ This is a web application for Event Management System.
 ### Tech Stack:
 
 <p>Front End- ReactJS, Tailwind CSS</p>
-<p>Back End- Node.js, Express.js</p>
+<p>Back End- Node.js, Express.js, also created a back end using Spring Boot</p>
 <p>Database- MongoDB</p>
 
 #### Demo Video:
